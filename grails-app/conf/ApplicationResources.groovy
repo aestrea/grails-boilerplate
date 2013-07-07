@@ -16,9 +16,11 @@ def useLessResource = {_delegate, filename ->
 }
 
 modules = {
+
     application {
         dependsOn 'jquery', 'bootstrap'
         resource url:'js/application.js'
+        resource url: 'css/scaffolding.css'
     }
 
     //==== Bootstrap ====//
@@ -28,6 +30,7 @@ modules = {
     }
 
     'bootstrap-js'{
+        dependsOn 'jquery'
         resource id: 'js', url: [dir: 'js/bootstrap', file: 'bootstrap.min.js'], disposition: 'head', nominify: true
     }
 
