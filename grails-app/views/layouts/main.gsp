@@ -1,3 +1,4 @@
+<%@ page import="grails.util.Environment" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -15,6 +16,10 @@
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 		<g:layoutHead/>
+        <r:require module='application'/>
+        <g:if test="${!Environment.isWarDeployed()}">
+            <r:require module="less"/>
+        </g:if>
 		<r:layoutResources />
 	</head>
 	<body>
@@ -22,7 +27,6 @@
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-		<g:javascript library="application"/>
 		<r:layoutResources />
 	</body>
 </html>

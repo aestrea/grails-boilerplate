@@ -1,3 +1,5 @@
+import grails.util.Environment
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -31,9 +33,6 @@ grails.mime.types = [
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
-
-// What URL patterns should be processed by the resources plugin
-grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
@@ -89,3 +88,37 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+//if( Environment.developmentMode ){
+//    try {
+//        git.reference = "git rev-parse HEAD".execute().text.replace('\n', '')
+//    } catch (Exception e) {
+//        println "could not get git revision because of $e"
+//    }
+//}
+
+/**
+ * Resources Configuration
+ */
+// What URL patterns should be processed by the resources plugin
+grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
+
+/**
+ * References:
+ * * http://grails.1312388.n4.nabble.com/lesscss-resources-vs-less-resources-td4635695.html#a4635797
+ * * https://github.com/smaldini/grails-website/commit/f13a7309051dce6f44a1cfd7491dfc5b13e7bf7e
+ * Fixes reloading bug in Zipped Resources (GPZIPPEDRESOURCES-3) that means that modifying LESS files has
+ * no impact on the running app. This also fixes the exclusions for images (GPZIPPEDRESOURCES-1).
+ */
+grails.resources.mappers.zip.excludes = ["**/*.png","**/*.gif","**/*.jpg", "**/*.less"]
+
+/**
+ * Don't cache LESS files. Since they are converted to CSS when the WAR is created,
+ * this is fine - we don't need caching in dev mode.
+ */
+grails.resources.mappers.hashandcache.excludes = ['**/*.less']
+
+/**
+ * Define less files here for processing in dev and war modes.
+ */
+less.filenames = ['bootstrap']
