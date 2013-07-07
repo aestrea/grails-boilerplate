@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="admin">
+		<meta name="layout" content="main">
 		<g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
@@ -16,7 +16,7 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="show-${domainClass.propertyName}" class="content scaffold-show" role="admin">
+		<div id="show-${domainClass.propertyName}" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="\${flash.message}">
 			<div class="message" role="status">\${flash.message}</div>
