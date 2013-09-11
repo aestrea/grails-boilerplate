@@ -23,17 +23,6 @@ modules = {
         resource url: 'css/scaffolding.css'
     }
 
-    //==== Bootstrap ====//
-    'bootstrap'{
-        dependsOn 'bootstrap-js'
-        useLessResource(delegate, 'bootstrap')
-    }
-
-    'bootstrap-js'{
-        dependsOn 'jquery'
-        resource id: 'js', url: [dir: 'js/bootstrap', file: 'bootstrap.min.js'], disposition: 'head', nominify: true
-    }
-
     //==== Utilities ====//
     /* Less */
     'less'{
