@@ -1,11 +1,6 @@
 body {
 	-webkit-text-size-adjust: none;
-}
-
-@media (min-width:980px) {
-	body { 
-		padding-top: 60px; 
-	}
+    padding-top: 60px;
 }
 
 .btn {
