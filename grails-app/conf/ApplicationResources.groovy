@@ -23,6 +23,10 @@ modules = {
         resource url: 'css/scaffolding.css'
     }
 
+    'stylesheet' {
+        useLessResource(delegate, 'stylesheet')
+    }
+
     //==== Utilities ====//
     /* Less */
     'less'{
