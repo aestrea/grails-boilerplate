@@ -20,7 +20,7 @@
 		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-
+        <r:require modules="stylesheet"/>
         <r:require modules="application"/>
 
 		<g:layoutHead/>
@@ -33,29 +33,28 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					
-					<a class="brand" href="${createLink(uri: '/')}">Grails Twitter Bootstrap</a>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
 
-					<div class="nav-collapse">
-						<ul class="nav">							
-							<li<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}">Home</a></li>
-							<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-								<li<%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
-							</g:each>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="${createLink(uri: '/')}">Grails Twitter Bootstrap</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li<%= request.forwardURI == "${createLink(uri: '/')}" ? ' class="active"' : '' %>><a href="${createLink(uri: '/')}">Home</a></li>
+                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+                        <li<%= c.logicalPropertyName == controllerName ? ' class="active"' : '' %>><g:link controller="${c.logicalPropertyName}">${c.naturalName}</g:link></li>
+                    </g:each>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 		<div class="container-fluid">
 			<g:layoutBody/>
