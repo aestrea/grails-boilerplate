@@ -45,6 +45,9 @@ grails.project.dependency.resolution = {
 
         /* Less Compiler for Server-side Compilation */
         build "org.lesscss:lesscss:1.3.3"
+
+        /* Spock */
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
@@ -63,6 +66,11 @@ grails.project.dependency.resolution = {
         runtime ":fields:1.3"
         compile(":twitter-bootstrap:3.0.0"){
             excludes 'resources'
+        }
+
+        /* Spock */
+        test(":spock:0.7") {
+            exclude "spock-grails-support"
         }
     }
 }
