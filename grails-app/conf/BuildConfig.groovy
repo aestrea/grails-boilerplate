@@ -48,7 +48,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        compile ":hibernate:3.6.10.1"
+        compile ":hibernate:$grailsVersion"
         runtime ":jquery:1.10.2"
         runtime ":resources:1.2.1"
 
@@ -57,10 +57,9 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.5"
 
-        build ':tomcat:7.0.41'
+        build ':tomcat:$grailsVersion'
         runtime ":database-migration:1.3.6"
         compile ':cache:1.0.1'
-        compile ':scaffolding:2.0.0.RC2'
         runtime ":fields:1.3"
         compile(":twitter-bootstrap:3.0.0"){
             excludes 'resources'
