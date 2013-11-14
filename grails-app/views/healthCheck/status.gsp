@@ -1,7 +1,7 @@
 <%@ page import="grails.util.Environment" %>
 <html>
 <head>
-    <title><g:message code="health.check.label"/></title>
+    <title>Health Check</title>
     <meta name="layout" content="main"/>
     <style type="text/css">
     .health-check {
